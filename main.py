@@ -1,3 +1,4 @@
+from os import system
 from random import seed
 from random import randint
 seed(1)
@@ -9,6 +10,10 @@ user_wins           = 0
 computer_wins       = 0
 valid_action        = False
 game                = True
+
+# Clear screen after every new game
+def clearScreen():
+    system('clear')
 
 # Display current score
 def currentScores():
@@ -56,8 +61,10 @@ while game == True:
     continue_game = input("Continue playing (yes/no): ")
     if continue_game == "yes" or continue_game == "Yes" or continue_game == "y" or continue_game == "Y":
         game == True
-        #Reset valid actions
+        # Reset valid actions
         valid_action = False
+        # Clear screen
+        clearScreen()
     elif continue_game == "no" or continue_game == "No" or continue_game == "n" or continue_game == "N":
         game == False
         break
